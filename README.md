@@ -10,7 +10,7 @@ You increment a semaphore count by calling the `dispatch_semaphore_signal` metho
 
 ## Dispatch Semaphore - API
 
-#### dispatch_semaphore_t
+### dispatch_semaphore_t
 
 ```objc
 typedef NSObject<OS_dispatch_semaphore> *dispatch_semaphore_t;
@@ -18,7 +18,7 @@ typedef NSObject<OS_dispatch_semaphore> *dispatch_semaphore_t;
 
 `dispatch_semaphore_t` 是遵守 `OS_dispatch_semaphore` 协议的 `NSObject` 类。所以它做属性时，用 `strong` 修饰。
 
-#### Creating a Semaphore：`dispatch_semaphore_create`
+### Creating a Semaphore：`dispatch_semaphore_create`
 
 ```objc
 dispatch_semaphore_t dispatch_semaphore_create(long value);
@@ -32,7 +32,7 @@ Warning：
 
 *Calls to `dispatch_semaphore_signal` must be balanced with calls to `dispatch_semaphore_wait`*. Attempting to dispose of a semaphore with a count lower than value causes an EXC_BAD_INSTRUCTION exception.
 
-#### Signaling the Semaphore：`dispatch_semaphore_signal`
+### Signaling the Semaphore：`dispatch_semaphore_signal`
 
 ```objc
 long dispatch_semaphore_signal(dispatch_semaphore_t dsema);
@@ -40,7 +40,7 @@ long dispatch_semaphore_signal(dispatch_semaphore_t dsema);
 
 Increment the counting semaphore. If the previous value was less than zero, this function wakes a thread currently waiting in dispatch_semaphore_wait.
 
-#### Blocking on the Semaphore：`dispatch_semaphore_wait`
+### Blocking on the Semaphore：`dispatch_semaphore_wait`
 
 ```objc
 long dispatch_semaphore_wait(dispatch_semaphore_t dsema, dispatch_time_t timeout);
